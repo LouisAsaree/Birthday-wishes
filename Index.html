@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Alien👽!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh; /* Full viewport height */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(bday.gif);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #fff; /* Change text color for better contrast */
+            margin: 0;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+        
+        }
+        h1 {
+            color: #ff1493;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 3em;
+            margin-bottom: 1px;
+
+        }
+        .message {
+            margin-top: 5px 0;
+            font-size: 1.4em;
+            text-align: center;
+            font-style: italic;
+            color: #fff; /* Changed for visibility */
+            margin-top: 1px;
+        }
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .photo-gallery img {
+            width: 150px;
+            height: auto; /* Maintain aspect ratio */
+            margin: 10px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .photo-gallery img:hover {
+            transform: scale(1.1);
+        }
+        .guestbook {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .guestbook h2 {
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+        .guestbook input, .guestbook button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .guestbook input {
+            width: 220px;
+            border: 1px solid #ccc;
+        }
+        .guestbook button {
+            background-color: #ff69b4;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .guestbook button:hover {
+            background-color: #ff1493;
+        }
+        .wishes {
+            margin-top: 20px;
+            font-size: 1em;
+        }
+        .balloon {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: float 5s ease-in infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); }
+        }
+        /* Balloon styles */
+        .balloon.red {
+            background-color: #ff6347;
+            width: 50px;
+            height: 70px;
+            left: 10%;
+            animation-duration: 6s;
+        }
+        .balloon.green {
+            background-color: #32cd32;
+            width: 40px;
+            height: 60px;
+            left: 25%;
+            animation-duration: 5s;
+        }
+        .balloon.blue {
+            background-color: #4682b4;
+            width: 45px;
+            height: 65px;
+            left: 40%;
+            animation-duration: 7s;
+        }
+        .balloon.yellow {
+            background-color: #ffd700;
+            width: 35px;
+            height: 50px;
+            left: 60%;
+            animation-duration: 8s;
+        }
+        .balloon.pink {
+            background-color: #ff69b4;
+            width: 40px;
+            height: 55px;
+            left: 75%;
+            animation-duration: 4s;
+        }
+        /* Media Queries for Mobile */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em; /* Smaller header on mobile */
+            }
+            .message {
+                font-size: 1.2em; /* Smaller message text on mobile */
+            }
+            .photo-gallery img {
+                width: 100px; /* Smaller images on mobile */
+            }
+            .guestbook input {
+                width: 90%; /* Wider input field on mobile */
+            }
+            .guestbook button {
+                width: 90%; /* Wider button on mobile */
+            }
+
+    
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Happy Birthday Alien👽!</h1>
+</header>
+
+<div class="message">
+    <p><em>On this special day, so bright,<br>
+    May your dreams take flight,<br>
+    Laughter and joy, all around,<br>
+    In love and happiness, may you be found.</em></p>
+</div>
+
+<div class="photo-gallery">
+    <img src="img/Birthday Photo 2.jpg" alt="Birthday Photo 1">
+    <img src="img/Birthday photo 1.jpg" alt="Birthday Photo 2">
+    <img src="img/Birthday photo3.jpg" alt="Birthday Photo 3">
+</div>
+
+<div class="guestbook">
+    <h2>Leave your wishes:</h2>
+    <input type="text" id="wishInput" placeholder="Your wish here...">
+    <button onclick="addWish()">Submit</button>
+    <div class="wishes" id="wishesList"></div>
+</div>
+
+<script>
+    function addWish() {
+        const wishInput = document.getElementById('wishInput');
+        const wishesList = document.getElementById('wishesList');
+
+        if (wishInput.value.trim() !== '') {
+            const newWish = document.createElement('p');
+            newWish.textContent = wishInput.value;
+            wishesList.appendChild(newWish);
+            wishInput.value = ''; // Clear the input
+        } else {
+            alert('Please enter a wish!');
+        }
+    }
+</script>
+
+<!-- Balloons -->
+<div class="balloon red"></div>
+<div class="balloon green"></div>
+<div class="balloon blue"></div>
+<div class="balloon yellow"></div>
+<div class="balloon pink"></div>
+
+</body>
+</html>
