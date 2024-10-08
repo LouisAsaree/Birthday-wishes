@@ -177,25 +177,38 @@
 
 <div class="guestbook">
     <h2>Leave your wishes:</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeDalKG0Z0r_qhbz_HMJ_ZNniPYA3XI__1PT1ReXhRuQSshYg/viewform?embedded=true" width="640" height="374" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>"
     <input type="text" id="wishInput" placeholder="Your wish here...">
     <button onclick="addWish()">Submit</button>
     <div class="wishes" id="wishesList"></div>
 </div>
 
 <script>
-    function addWish() {
-        const wishInput = document.getElementById('wishInput');
-        const wishesList = document.getElementById('wishesList');
+         function submitWish() {
+        const wish = document.getElementById('wishInput').value;
 
-        if (wishInput.value.trim() !== '') {
-            const newWish = document.createElement('p');
-            newWish.textContent = wishInput.value;
-            wishesList.appendChild(newWish);
-            wishInput.value = ''; // Clear the input
-        } else {
-            alert('Please enter a wish!');
-        }
+        // Replace YOUR_GOOGLE_FORM_ACTION_URL with the action URL of your Google Form
+        const formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeDalKG0Z0r_qhbz_HMJ_ZNniPYA3XI__1PT1ReXhRuQSshYg/formResponse";
+        
+        // Create a new FormData object
+        const formData = new FormData();
+        
+        // Replace ENTRY_ID with the actual entry ID for the Google Form question
+        formData.append("entry.93623715", wish); // Adjust 'entry.1234567890' to your entry ID
+
+        // Send the data using fetch
+        fetch(formUrl, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // Important for Google Forms
+        })
+        .then(response => {
+            console.log('Success:', response);
+            alert('Your wish has been submitted!');
+            document.getElementById('wishInput').value = ''; // Clear input
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     }
 </script>
 
