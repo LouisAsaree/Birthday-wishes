@@ -187,13 +187,13 @@
         const wish = document.getElementById('wishInput').value;
 
         // Replace YOUR_GOOGLE_FORM_ACTION_URL with the action URL of your Google Form
-        const formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeDalKG0Z0r_qhbz_HMJ_ZNniPYA3XI__1PT1ReXhRuQSshYg/formResponse";
+        const formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScQC87NG9QfVyT_lvVZSIoHysT2MX8ORN9F7bIyIg6Z3HyM9Q/formResponse";
         
         // Create a new FormData object
         const formData = new FormData();
         
         // Replace ENTRY_ID with the actual entry ID for the Google Form question
-        formData.append("entry.93623715", wish); // Adjust 'entry.1234567890' to your entry ID
+        formData.append("entry.1062675965", wish); // Adjust 'entry.1234567890' to your entry ID
 
         // Send the data using fetch
         fetch(formUrl, {
